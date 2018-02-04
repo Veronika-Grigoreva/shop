@@ -68,4 +68,5 @@ $route['checkout4'] = 'checkout/checkout4';
 $route['category'] = 'categories/category';
 $route['detail'] = 'product/detail';
 
-
+//admin routes
+$route['admin'] = 'admin/dashboard';
