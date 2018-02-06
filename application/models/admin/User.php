@@ -32,7 +32,14 @@ class User extends CI_Model
 
     public function getAdminData()
     {
-
+        if (empty(self::$user)) {
+            return false;
+        } else {
+            return [
+                'login' => self::$user->login,
+                'email' => self::$user->email,
+            ];
+        }
     }
 
     public function loginAdmin($data)
@@ -57,7 +64,7 @@ class User extends CI_Model
         $this->db->where('id', self::$user->id);
         $this->db->update('admin_users', $data);
 
-        //set ket to SESSION
+        //set key to SESSION
         $this->session->set_userdata(['backend_key' => $backendKey]);
 
         return true;
@@ -65,7 +72,16 @@ class User extends CI_Model
 
     public function logoutAdmin()
     {
+        //unset key to DB
+        $data = array(
+            'key' => ''
+        );
 
+        $this->db->where('id', self::$user->id);
+        $this->db->update('admin_users', $data);
+
+        //unset key to SESSION
+        $this->session->unset_userdata();
     }
 
     private function generateKey() {
