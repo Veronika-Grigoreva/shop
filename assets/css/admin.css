@@ -1,3 +1,7 @@
 .center {
     text-align: center;
 }
+
+img.product-grid-image {
+    max-width: 15%;
+}

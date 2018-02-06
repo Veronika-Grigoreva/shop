@@ -37,4 +37,10 @@ class Login extends Admin_Controller
 
         redirect('admin/', 'refresh');
     }
+
+    public function logoutPost()
+    {
+        $this->adminUser->logoutAdmin();
+        redirect('admin/login', 'refresh');
+    }
 }

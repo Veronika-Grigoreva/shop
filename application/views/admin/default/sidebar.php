@@ -7,57 +7,39 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                    <?php echo $adminData['login']; ?>
                 </a>
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="dashboard.html">
+                <li id="dashboard">
+                    <a href="/admin">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
-                        <i class="ti-user"></i>
-                        <p>User Profile</p>
+                <li id="orders">
+                    <a href="/admin/orders">
+                        <i class="ti-shopping-cart-full"></i>
+                        <p>Orders</p>
                     </a>
                 </li>
-                <li>
-                    <a href="table.html">
+                <li id="products">
+                    <a href="/admin/products">
+                        <i class="ti-package"></i>
+                        <p>Products</p>
+                    </a>
+                </li>
+                <li id="categories">
+                    <a href="/admin/categories">
                         <i class="ti-view-list-alt"></i>
-                        <p>Table List</p>
+                        <p>Categories</p>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="ti-text"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
+                <li id="users">
                     <a href="icons.html">
-                        <i class="ti-pencil-alt2"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="ti-map"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="ti-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="ti-export"></i>
-                        <p>Upgrade to PRO</p>
+                        <i class="ti-user"></i>
+                        <p>Users</p>
                     </a>
                 </li>
             </ul>

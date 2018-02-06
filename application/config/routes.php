@@ -73,6 +73,16 @@ $route['detail'] = 'product/detail';
  */
 //dashboard
 $route['admin'] = 'admin/dashboard';
+
 //login
 $route['admin/login'] = 'admin/login';
 $route['admin/loginPost'] = 'admin/login/loginPost';
+$route['admin/logoutPost'] = 'admin/login/logoutPost';
+
+//orders
+$route['admin/orders'] = 'admin/orders/grid';
+$route['admin/order/:num'] = 'admin/orders/item';
+
+//products
+$route['admin/products'] = 'admin/products/grid';
+$route['admin/product/:num'] = 'admin/products/item';
