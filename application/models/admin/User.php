@@ -81,7 +81,7 @@ class User extends CI_Model
         $this->db->update('admin_users', $data);
 
         //unset key to SESSION
-        $this->session->unset_userdata();
+        $this->session->unset_userdata('backend_key');
     }
 
     private function generateKey() {
