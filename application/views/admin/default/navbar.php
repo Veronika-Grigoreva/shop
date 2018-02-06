@@ -8,7 +8,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="#">Dashboard</a>
+                <h5 class="navbar-brand"><?php echo $pageInformation['pageTitle']; ?></h5>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -19,7 +19,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>

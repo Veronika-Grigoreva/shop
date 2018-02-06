@@ -16,6 +16,8 @@ class Admin_Controller extends MY_Controller
 {
     private $notCheckAccess = ['login/index', 'login/loginPost'];
 
+    protected $pageData;
+
     function __construct()
     {
         parent::__construct();
@@ -32,5 +34,17 @@ class Admin_Controller extends MY_Controller
         } else if($this->adminUser->isLogined() && (in_array($route, $this->notCheckAccess))) {
             redirect('admin/', 'refresh');
         }
+
+        //prepare admin page data
+        $this->adminData = $this->adminUser->getAdminData();
+
+        $this->pageData = [
+            'pageInformation'  => ['pageTitle' => 'Default'],
+            'adminData'        => $this->adminData,
+            'gridCollection'   => '',
+            'itemData'         => '',
+            'jsSettings'       => ['activeMenuItem' => 'default'],
+            'messages'         => ['errors' => [], 'success' => []],
+        ];
     }
 }
