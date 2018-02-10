@@ -24,7 +24,7 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/assets/css/demo.css" rel="stylesheet" />
-
+    <link href="/assets/css/dropzone.css" rel="stylesheet" />
 
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">

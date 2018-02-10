@@ -33,9 +33,17 @@ class CMS_Model extends MY_Model
         return $this->prepareData($query->result());
     }
 
-    public function load()
+    public function load($id)
     {
-        exit('load method');
+        $query = $this->db->get_where($this->table, array('id' => $id));
+
+        $result = false;
+        foreach ($query->result() as $item)
+        {
+            $result = $item;
+        }
+
+        return $result;
     }
 
     public function getData()
