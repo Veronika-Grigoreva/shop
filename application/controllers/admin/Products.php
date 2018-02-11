@@ -61,14 +61,17 @@ class Products extends Admin_Controller
         }
     }
 
-    public function save($id = null){
-
-        if ($this->productModel->load($id)) {
+    public function save($id = null)
+    {
+        if ($id && $this->productModel->load($id)) {
             $this->productModel->setData($this->input->post());
-            if ($this->productModel->save()) {
-                $this->session->set_flashdata('success', ['message' => 'Product has been saved']);
-                redirect('admin/products', 'refresh');
-            }
+        } else {
+            $this->productModel->setData($this->input->post());
+        }
+
+        if ($this->productModel->save()) {
+            $this->session->set_flashdata('success', ['message' => 'Product has been saved']);
+            redirect('admin/products', 'refresh');
         }
 
         exit;

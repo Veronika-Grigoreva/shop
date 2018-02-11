@@ -39,28 +39,26 @@ class CMS_Model extends MY_Model
     {
         $query = $this->db->get_where($this->table, array('id' => $id));
 
-        $result = false;
-        foreach ($query->result() as $item)
-        {
-            $this->object = $item;
-            break;
-        }
+        $result = $query->result();
 
-        return $this->object;
+        return self::$object = $result[0];
     }
 
     public function save()
     {
         $data = [];
 
-        foreach ($this->object as $key => $value) {
+        foreach (self::$object as $key => $value) {
             $data[$key] = $value;
         }
 
-        $this->db->where('id', $this->object->id);
-        $this->db->update($this->table, $data);
+        if (isset($data['id'])) {
+            $this->db->where('id', self::$object->id);
 
-        return true;
+            return $this->db->update($this->table, $data);
+        } else {
+            return $this->db->insert($this->table, $data);
+        }
     }
 
     public function getData($field = null)
@@ -71,11 +69,14 @@ class CMS_Model extends MY_Model
     public function setData($data, $field = null)
     {
         if (!$field) {
+            if (empty(self::$object)) {
+                self::$object = new stdClass();
+            }
             foreach ($data as $key => $value) {
-                $this->object->{$key} = $value;
+                self::$object->$key = $value;
             }
         } else {
-            $this->object->{$field} = $data;
+            self::$object->$field = $data;
         }
     }
 }

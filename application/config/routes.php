@@ -88,4 +88,5 @@ $route['admin/products'] = 'admin/products/grid';
 $route['admin/product/(:num)'] = 'admin/products/item/$1';
 $route['admin/product/new'] = 'admin/products/item/';
 $route['admin/product/(:num)/save'] = 'admin/products/save/$1';
+$route['admin/product/new/save'] = 'admin/products/save/';
 $route['admin/uploadfile'] = 'admin/products/uploadImage/';

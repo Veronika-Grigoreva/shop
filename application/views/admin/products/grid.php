@@ -6,7 +6,7 @@
                         <div class="row">
                             <div class="col-lg-9"><h4 class="title">Products Grid</h4></div>
                             <div class="col-lg-3">
-                                <a href="/admin/product/"><button class="btn btn-default btn-block">Add new product</button></a>
+                                <a href="/admin/product/new"><button class="btn btn-default btn-block">Add new product</button></a>
                             </div>
                         </div>
                     </div>

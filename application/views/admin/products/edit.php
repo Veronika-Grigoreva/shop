@@ -65,7 +65,11 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <div id="uploadfile" class="dropzone">
-                                        <input type="hidden" name="image" id="image" class="product-data" value="<?php echo $itemData->image;?>"/>
+                                        <?php if (isset($itemData->image)):?>
+                                            <input type="hidden" name="image" id="image" class="product-data" value="<?php echo $itemData->image;?>"/>
+                                        <?php else: ?>
+                                            <input type="hidden" name="image" id="image" class="product-data" value=""/>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -124,11 +128,11 @@
                                 <div class="form-group">
                                     <select name="id_brand" class="product-data">
                                         <option value="">Select brand...</option>
-                                        <option value="brand_1">Test brand 1</option>
-                                        <option value="brand_2">Test brand 2</option>
-                                        <option value="brand_3">Test brand 3</option>
-                                        <option value="brand_4">Test brand 4</option>
-                                        <option value="brand_5">Test brand 5</option>
+<!--                                        <option value="brand_1">Test brand 1</option>-->
+<!--                                        <option value="brand_2">Test brand 2</option>-->
+<!--                                        <option value="brand_3">Test brand 3</option>-->
+<!--                                        <option value="brand_4">Test brand 4</option>-->
+<!--                                        <option value="brand_5">Test brand 5</option>-->
                                     </select>
                                 </div>
                             </div>
@@ -143,11 +147,11 @@
                                 <div class="form-group">
                                     <select name="id_colour" class="product-data">
                                         <option value="">Select color...</option>
-                                        <option value="color_1">Test color 1</option>
-                                        <option value="color_2">Test color 2</option>
-                                        <option value="color_3">Test color 3</option>
-                                        <option value="color_4">Test color 4</option>
-                                        <option value="color_5">Test color 5</option>
+<!--                                        <option value="color_1">Test color 1</option>-->
+<!--                                        <option value="color_2">Test color 2</option>-->
+<!--                                        <option value="color_3">Test color 3</option>-->
+<!--                                        <option value="color_4">Test color 4</option>-->
+<!--                                        <option value="color_5">Test color 5</option>-->
                                     </select>
                                 </div>
                             </div>
