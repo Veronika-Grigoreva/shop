@@ -522,7 +522,7 @@ class CI_Cart {
 	// --------------------------------------------------------------------
 
 	/**
-	 * ProductFrontend options
+	 * Product options
 	 *
 	 * Returns the an array of options, for a particular product row ID
 	 *

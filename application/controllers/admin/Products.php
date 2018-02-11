@@ -70,7 +70,7 @@ class Products extends Admin_Controller
         }
 
         if ($this->productModel->save()) {
-            $this->session->set_flashdata('success', ['message' => 'ProductFrontend has been saved']);
+            $this->session->set_flashdata('success', ['message' => 'Product has been saved']);
             redirect('admin/products', 'refresh');
         }
 
