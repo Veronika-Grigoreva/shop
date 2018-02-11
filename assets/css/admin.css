@@ -3,5 +3,9 @@
 }
 
 img.product-grid-image {
-    max-width: 15%;
+    max-width: 100px;
+}
+.dz-image img {
+    max-width: 100%;
+    max-height: 100%;
 }

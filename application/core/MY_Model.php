@@ -14,6 +14,8 @@ class CMS_Model extends MY_Model
 {
     private $table = '';
 
+    private static $object;
+
     function __construct($table)
     {
         $this->table = $table;
@@ -33,18 +35,48 @@ class CMS_Model extends MY_Model
         return $this->prepareData($query->result());
     }
 
-    public function load()
+    public function load($id)
     {
-        exit('load method');
+        $query = $this->db->get_where($this->table, array('id' => $id));
+
+        $result = $query->result();
+
+        return self::$object = $result[0];
     }
 
-    public function getData()
+    public function save()
+    {
+        $data = [];
+
+        foreach (self::$object as $key => $value) {
+            $data[$key] = $value;
+        }
+
+        if (isset($data['id'])) {
+            $this->db->where('id', self::$object->id);
+
+            return $this->db->update($this->table, $data);
+        } else {
+            return $this->db->insert($this->table, $data);
+        }
+    }
+
+    public function getData($field = null)
     {
         exit('get data method');
     }
 
-    public function setData()
+    public function setData($data, $field = null)
     {
-        exit('set data method');
+        if (!$field) {
+            if (empty(self::$object)) {
+                self::$object = new stdClass();
+            }
+            foreach ($data as $key => $value) {
+                self::$object->$key = $value;
+            }
+        } else {
+            self::$object->$field = $data;
+        }
     }
 }

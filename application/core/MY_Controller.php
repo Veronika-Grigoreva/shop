@@ -44,7 +44,7 @@ class Admin_Controller extends MY_Controller
             'gridCollection'   => '',
             'itemData'         => '',
             'jsSettings'       => ['activeMenuItem' => 'default'],
-            'messages'         => ['errors' => [], 'success' => []],
+            'messages'         => ['errors' => $this->session->userdata('error'), 'success' => $this->session->userdata('success')],
         ];
     }
 }

@@ -1,9 +1,5 @@
 <div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
-        <!--
-            Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-            Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-        -->
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
@@ -34,6 +30,12 @@
                     <a href="/admin/categories">
                         <i class="ti-view-list-alt"></i>
                         <p>Categories</p>
+                    </a>
+                </li>
+                <li id="attributes">
+                    <a href="/admin/attributes">
+                        <i class="ti-ruler-pencil"></i>
+                        <p>Attributes</p>
                     </a>
                 </li>
                 <li id="users">
