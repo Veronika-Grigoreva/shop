@@ -67,6 +67,7 @@ $route['checkout3'] = 'checkout/checkout3';
 $route['checkout4'] = 'checkout/checkout4';
 $route['category'] = 'categories/category';
 $route['detail'] = 'product/detail';
+$route['product/(:num)'] = 'product/detail/$1';
 
 /**
  * Admin routes

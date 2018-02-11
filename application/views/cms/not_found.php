@@ -17,7 +17,7 @@
                         <div class="box">
 
                             <p class="text-center">
-                                <img src="img/logo.png" alt="Obaju template">
+                                <img src="/img/logo.png" alt="Obaju template">
                             </p>
 
                             <h3>We are sorry - this page is not here anymore</h3>
