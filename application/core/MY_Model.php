@@ -14,6 +14,8 @@ class CMS_Model extends MY_Model
 {
     private $table = '';
 
+    private static $object;
+
     function __construct($table)
     {
         $this->table = $table;
@@ -40,19 +42,40 @@ class CMS_Model extends MY_Model
         $result = false;
         foreach ($query->result() as $item)
         {
-            $result = $item;
+            $this->object = $item;
+            break;
         }
 
-        return $result;
+        return $this->object;
     }
 
-    public function getData()
+    public function save()
+    {
+        $data = [];
+
+        foreach ($this->object as $key => $value) {
+            $data[$key] = $value;
+        }
+
+        $this->db->where('id', $this->object->id);
+        $this->db->update($this->table, $data);
+
+        return true;
+    }
+
+    public function getData($field = null)
     {
         exit('get data method');
     }
 
-    public function setData()
+    public function setData($data, $field = null)
     {
-        exit('set data method');
+        if (!$field) {
+            foreach ($data as $key => $value) {
+                $this->object->{$key} = $value;
+            }
+        } else {
+            $this->object->{$field} = $data;
+        }
     }
 }

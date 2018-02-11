@@ -122,13 +122,13 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <select name="brand" class="product-data">
-                                        <option>Select brand...</option>
-                                        <option name="brand_1">Test brand 1</option>
-                                        <option name="brand_2">Test brand 2</option>
-                                        <option name="brand_3">Test brand 3</option>
-                                        <option name="brand_4">Test brand 4</option>
-                                        <option name="brand_5">Test brand 5</option>
+                                    <select name="id_brand" class="product-data">
+                                        <option value="">Select brand...</option>
+                                        <option value="brand_1">Test brand 1</option>
+                                        <option value="brand_2">Test brand 2</option>
+                                        <option value="brand_3">Test brand 3</option>
+                                        <option value="brand_4">Test brand 4</option>
+                                        <option value="brand_5">Test brand 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -141,13 +141,13 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <select name="brand" class="product-data">
-                                        <option>Select color...</option>
-                                        <option name="color_1">Test color 1</option>
-                                        <option name="color_2">Test color 2</option>
-                                        <option name="color_3">Test color 3</option>
-                                        <option name="color_4">Test color 4</option>
-                                        <option name="color_5">Test color 5</option>
+                                    <select name="id_colour" class="product-data">
+                                        <option value="">Select color...</option>
+                                        <option value="color_1">Test color 1</option>
+                                        <option value="color_2">Test color 2</option>
+                                        <option value="color_3">Test color 3</option>
+                                        <option value="color_4">Test color 4</option>
+                                        <option value="color_5">Test color 5</option>
                                     </select>
                                 </div>
                             </div>
