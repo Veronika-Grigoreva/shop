@@ -18,7 +18,6 @@ class Product extends CI_Controller
         $this->load->view('default/topbar');
         $this->load->view('default/navbar', $test);
 
-
         if ($data) {
             $this->load->view('product/detail', $data);
         } else {

@@ -51,13 +51,13 @@ _________________________________________________________ -->
                                             <?php if ($value->parent_category_id == 3 && $value->id ==5): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
-                                                <?php endif;?>
+                                            <?php endif;?>
                                             <?php endforeach;?>
                                             <?php foreach ($query as $value): ?>
                                             <?php if ($value->parent_category_id == 3 && $value->id ==6): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
-                                                <?php endif;?>
+                                            <?php endif;?>
                                             <?php endforeach;?>
 <!--                                            <li><a href="category">Pants</a>-->
 <!--                                            </li>-->
@@ -144,13 +144,13 @@ _________________________________________________________ -->
                                             <?php if ($value->parent_category_id == 4 && $value->id ==7): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
-                                                <?php endif;?>
+                                            <?php endif;?>
                                             <?php endforeach;?>
                                             <?php foreach ($query as $value): ?>
                                             <?php if ($value->parent_category_id == 4 && $value->id ==8): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
-                                                <?php endif;?>
+                                            <?php endif;?>
                                             <?php endforeach;?>
 <!--                                            <li><a href="category">Pants</a>-->
 <!--                                            </li>-->
