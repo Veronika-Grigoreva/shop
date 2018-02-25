@@ -9,9 +9,15 @@ class Product extends CI_Controller
         $this->load->model('productFrontend');
         $data = $this->productFrontend->getProductById($id);
 
+        $this->load->model('category');
+        $query = $this->category->getParentCategoryId();
+
+        $test = ['query'=>$query];
+
         $this->load->view('default/head');
         $this->load->view('default/topbar');
-        $this->load->view('default/navbar');
+        $this->load->view('default/navbar', $test);
+
 
         if ($data) {
             $this->load->view('product/detail', $data);
