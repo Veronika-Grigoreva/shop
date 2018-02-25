@@ -9,7 +9,7 @@ class Category extends CI_Model
         $this->load->database();
     }
 
-    public function getParentCategoryId()
+    public function getAllCategories()
     {
         $query = $this->db->get('categories_id');
         $result = $query->result();

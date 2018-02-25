@@ -31,7 +31,7 @@ _________________________________________________________ -->
                 <li class="active"><a href="/">Home</a>
                 </li>
                 <li class="dropdown yamm-fw">
-                    <?php foreach ($query as $value): ?>
+                    <?php foreach ($navbarData as $value): ?>
                     <?php if ($value->parent_category_id == NULL && $value->id == 1): ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
                     <?php endif;?>
@@ -41,69 +41,26 @@ _________________________________________________________ -->
                             <div class="yamm-content">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <?php foreach ($query as $value): ?>
+                                        <?php foreach ($navbarData as $value): ?>
                                         <?php if ($value->parent_category_id == 1 && $value->id ==3): ?>
                                         <h5><?php echo $value->name; ?></h5>
                                         <?php endif;?>
                                         <?php endforeach;?>
                                         <ul>
-                                            <?php foreach ($query as $value): ?>
+                                            <?php foreach ($navbarData as $value): ?>
                                             <?php if ($value->parent_category_id == 3 && $value->id ==5): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-                                            <?php foreach ($query as $value): ?>
+                                            <?php foreach ($navbarData as $value): ?>
                                             <?php if ($value->parent_category_id == 3 && $value->id ==6): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-<!--                                            <li><a href="category">Pants</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Access</a>-->
-<!--                                            </li>-->
                                         </ul>
                                     </div>
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Shoes</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="category">Trainers</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Sandals</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Hiking shoes</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Casual</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Access</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="category">Trainers</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Sandals</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Hiking shoes</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Casual</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Hiking shoes</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Casual</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                        <h5>Looks and trends</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="category">Trainers</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Sandals</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Hiking shoes</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
                                     <div class="col-sm-3">
                                         <div class="banner">
                                             <a href="#">
@@ -124,7 +81,7 @@ _________________________________________________________ -->
                 </li>
 
                 <li class="dropdown yamm-fw">
-                    <?php foreach ($query as $value): ?>
+                    <?php foreach ($navbarData as $value): ?>
                     <?php if ($value->parent_category_id == NULL && $value->id == 2): ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
                     <?php endif;?>
@@ -134,163 +91,32 @@ _________________________________________________________ -->
                             <div class="yamm-content">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <?php foreach ($query as $value): ?>
+                                        <?php foreach ($navbarData as $value): ?>
                                         <?php if ($value->parent_category_id == 2 && $value->id == 4): ?>
                                         <h5><?php echo $value->name; ?></h5>
                                         <?php endif;?>
                                         <?php endforeach;?>
                                         <ul>
-                                            <?php foreach ($query as $value): ?>
+                                            <?php foreach ($navbarData as $value): ?>
                                             <?php if ($value->parent_category_id == 4 && $value->id ==7): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-                                            <?php foreach ($query as $value): ?>
+                                            <?php foreach ($navbarData as $value): ?>
                                             <?php if ($value->parent_category_id == 4 && $value->id ==8): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-<!--                                            <li><a href="category">Pants</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Accessories</a>-->
-<!--                                            </li>-->
                                         </ul>
                                     </div>
-<!--                                    <div class="col-sm-3">-->
-<!--                                                                                <h5>Shoes</h5>-->
-<!--                                                                                <ul>-->
-<!--                                                                                    <li><a href="category">Trainers</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Sandals</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Hiking shoes</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Casual</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                                                                <h5>Accessories</h5>-->
-<!--                                                                                <ul>-->
-<!--                                                                                    <li><a href="category">Trainers</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Sandals</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Hiking shoes</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Casual</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Hiking shoes</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Casual</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                                                                <h5>Featured</h5>-->
-<!--                                                                                <ul>-->
-<!--                                                                                    <li><a href="category">Trainers</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Sandals</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Hiking shoes</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                </ul>-->
-<!--                                                                                <h5>Looks and trends</h5>-->
-<!--                                                                                <ul>-->
-<!--                                                                                    <li><a href="category">Trainers</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Sandals</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                    <li><a href="category">Hiking shoes</a>-->
-<!--                                                                                    </li>-->
-<!--                                                                                </ul>-->
-<!--                                    </div>-->
                                 </div>
                         </div>
                         <!-- /.yamm-content -->
                         </li>
                     </ul>
                 </li>
-
-<!--                <li class="dropdown yamm-fw">-->
-<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>-->
-<!--                    <ul class="dropdown-menu">-->
-<!--                        <li>-->
-<!--                            <div class="yamm-content">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Shop</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="/">Homepage</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Category - sidebar left</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category-right.html">Category - sidebar right</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category-full.html">Category - full width</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="detail">Product detail</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>User</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="register">Register / login</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_orders">Orders history</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_order">Order history detail</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_wishlist">Wishlist</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_account">Customer account / change password</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Order process</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="cart">Shopping cart</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout1">Checkout - step 1</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout2">Checkout - step 2</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout3">Checkout - step 3</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout4">Checkout - step 4</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Pages and blog</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="blog.html">Blog listing</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="post.html">Blog Post</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="faq.html">FAQ</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="text.html">Text page</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="text-right.html">Text page - right sidebar</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="not_found">404 page</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="contact">Contact</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <!-- /.yamm-content -->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </li>-->
             </ul>
 
         </div>
