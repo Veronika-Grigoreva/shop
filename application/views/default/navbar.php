@@ -31,7 +31,7 @@ _________________________________________________________ -->
                 <li class="active"><a href="/">Home</a>
                 </li>
                 <li class="dropdown yamm-fw">
-                    <?php foreach ($navbarData as $value): ?>
+                    <?php foreach ($categories as $value): ?>
                     <?php if ($value->parent_category_id == NULL && $value->id == 1): ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
                     <?php endif;?>
@@ -41,19 +41,19 @@ _________________________________________________________ -->
                             <div class="yamm-content">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <?php foreach ($navbarData as $value): ?>
+                                        <?php foreach ($categories as $value): ?>
                                         <?php if ($value->parent_category_id == 1 && $value->id ==3): ?>
                                         <h5><?php echo $value->name; ?></h5>
                                         <?php endif;?>
                                         <?php endforeach;?>
                                         <ul>
-                                            <?php foreach ($navbarData as $value): ?>
+                                            <?php foreach ($categories as $value): ?>
                                             <?php if ($value->parent_category_id == 3 && $value->id ==5): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-                                            <?php foreach ($navbarData as $value): ?>
+                                            <?php foreach ($categories as $value): ?>
                                             <?php if ($value->parent_category_id == 3 && $value->id ==6): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
@@ -81,7 +81,7 @@ _________________________________________________________ -->
                 </li>
 
                 <li class="dropdown yamm-fw">
-                    <?php foreach ($navbarData as $value): ?>
+                    <?php foreach ($categories as $value): ?>
                     <?php if ($value->parent_category_id == NULL && $value->id == 2): ?>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
                     <?php endif;?>
@@ -91,19 +91,19 @@ _________________________________________________________ -->
                             <div class="yamm-content">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <?php foreach ($navbarData as $value): ?>
+                                        <?php foreach ($categories as $value): ?>
                                         <?php if ($value->parent_category_id == 2 && $value->id == 4): ?>
                                         <h5><?php echo $value->name; ?></h5>
                                         <?php endif;?>
                                         <?php endforeach;?>
                                         <ul>
-                                            <?php foreach ($navbarData as $value): ?>
+                                            <?php foreach ($categories as $value): ?>
                                             <?php if ($value->parent_category_id == 4 && $value->id ==7): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
                                             <?php endif;?>
                                             <?php endforeach;?>
-                                            <?php foreach ($navbarData as $value): ?>
+                                            <?php foreach ($categories as $value): ?>
                                             <?php if ($value->parent_category_id == 4 && $value->id ==8): ?>
                                             <li><a href="category"><?php echo $value->name; ?></a>
                                             </li>
