@@ -32,7 +32,7 @@ _________________________________________________________ -->
                 </li>
                 <?php foreach ($categories as $category1): ?>
                     <li class="dropdown yamm-fw">
-                        <a href="category/<?php echo $category1->id ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $category1->name; ?><b class="caret"></b></a>
+                        <a href="/category/<?php echo $category1->id ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $category1->name; ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="yamm-content">
@@ -42,7 +42,7 @@ _________________________________________________________ -->
                                             <h5><?php echo $category2->name; ?></h5>
                                             <ul>
                                                 <?php foreach ($category2->children as $category3): ?>
-                                                <li><a href="category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
+                                                <li><a href="/category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
                                                 </li>
                                                 <?php endforeach;?>
                                                 </ul>

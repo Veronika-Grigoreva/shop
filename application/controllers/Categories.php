@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Categories extends Frontend_Controller
 {
-    public function category()
+    public function category($id)
     {
         $navbarData = $this->pageData['navbarData'];
 
