@@ -12,6 +12,24 @@ class MY_Controller extends CI_Controller
     }
 }
 
+class Frontend_Controller extends MY_Controller
+{
+    protected $pageData;
+
+    function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('category');
+        $categories = $this->category->getAllCategories();
+
+        $this->pageData = [
+            'navbarData' => ['categories' => $categories]
+        ];
+    }
+
+}
+
 class Admin_Controller extends MY_Controller
 {
     private $notCheckAccess = ['login/index', 'login/loginPost'];

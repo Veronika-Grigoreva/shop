@@ -2,13 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Checkout extends CI_Controller
+class Checkout extends Frontend_Controller
 {
     public function checkout1()
     {
+        $navbarData = $this->pageData['navbarData'];
+
         $this->load->view('default/head');
         $this->load->view('default/topbar');
-        $this->load->view('default/navbar');
+        $this->load->view('default/navbar', $navbarData);
         $this->load->view('checkout/checkout1');
         $this->load->view('default/footer');
         $this->load->view('default/copyright');
@@ -17,9 +19,11 @@ class Checkout extends CI_Controller
 
     public function checkout2()
     {
+        $navbarData = $this->pageData['navbarData'];
+
         $this->load->view('default/head');
         $this->load->view('default/topbar');
-        $this->load->view('default/navbar');
+        $this->load->view('default/navbar', $navbarData);
         $this->load->view('checkout/checkout2');
         $this->load->view('default/footer');
         $this->load->view('default/copyright');
@@ -29,9 +33,11 @@ class Checkout extends CI_Controller
 
     public function checkout3()
     {
+        $navbarData = $this->pageData['navbarData'];
+
         $this->load->view('default/head');
         $this->load->view('default/topbar');
-        $this->load->view('default/navbar');
+        $this->load->view('default/navbar', $navbarData);
         $this->load->view('checkout/checkout3');
         $this->load->view('default/footer');
         $this->load->view('default/copyright');
@@ -41,9 +47,11 @@ class Checkout extends CI_Controller
 
     public function checkout4()
     {
+        $navbarData = $this->pageData['navbarData'];
+
         $this->load->view('default/head');
         $this->load->view('default/topbar');
-        $this->load->view('default/navbar');
+        $this->load->view('default/navbar', $navbarData);
         $this->load->view('checkout/checkout4');
         $this->load->view('default/footer');
         $this->load->view('default/copyright');

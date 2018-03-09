@@ -30,237 +30,32 @@ _________________________________________________________ -->
             <ul class="nav navbar-nav navbar-left">
                 <li class="active"><a href="/">Home</a>
                 </li>
-                <li class="dropdown yamm-fw">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Men <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="yamm-content">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h5>Clothing</h5>
-                                        <ul>
-                                            <li><a href="category">T-shirts</a>
-                                            </li>
-                                            <li><a href="category">Shirts</a>
-                                            </li>
-                                            <li><a href="category">Pants</a>
-                                            </li>
-                                            <li><a href="category">Accessories</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5>Shoes</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5>Accessories</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5>Featured</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                        </ul>
-                                        <h5>Looks and trends</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.yamm-content -->
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown yamm-fw">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Ladies <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="yamm-content">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h5>Clothing</h5>
-                                        <ul>
-                                            <li><a href="category">T-shirts</a>
-                                            </li>
-                                            <li><a href="category">Shirts</a>
-                                            </li>
-                                            <li><a href="category">Pants</a>
-                                            </li>
-                                            <li><a href="category">Accessories</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5>Shoes</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <h5>Accessories</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                            <li><a href="category">Casual</a>
-                                            </li>
-                                        </ul>
-                                        <h5>Looks and trends</h5>
-                                        <ul>
-                                            <li><a href="category">Trainers</a>
-                                            </li>
-                                            <li><a href="category">Sandals</a>
-                                            </li>
-                                            <li><a href="category">Hiking shoes</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="banner">
-                                            <a href="#">
-                                                <img src="img/banner.jpg" class="img img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="banner">
-                                            <a href="#">
-                                                <img src="img/banner2.jpg" class="img img-responsive" alt="">
-                                            </a>
+                <?php foreach ($categories as $category1): ?>
+                    <li class="dropdown yamm-fw">
+                        <a href="category/<?php echo $category1->id ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $category1->name; ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <?php foreach ($category1->children as $category2): ?>
+                                            <h5><?php echo $category2->name; ?></h5>
+                                            <ul>
+                                                <?php foreach ($category2->children as $category3): ?>
+                                                <li><a href="category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
+                                                </li>
+                                                <?php endforeach;?>
+                                                </ul>
+                                            <?php endforeach;?>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- /.yamm-content -->
-                        </li>
-                    </ul>
-                </li>
-
-<!--                <li class="dropdown yamm-fw">-->
-<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Template <b class="caret"></b></a>-->
-<!--                    <ul class="dropdown-menu">-->
-<!--                        <li>-->
-<!--                            <div class="yamm-content">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Shop</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="/">Homepage</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category">Category - sidebar left</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category-right.html">Category - sidebar right</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="category-full.html">Category - full width</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="detail">Product detail</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>User</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="register">Register / login</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_orders">Orders history</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_order">Order history detail</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_wishlist">Wishlist</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="customer_account">Customer account / change password</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Order process</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="cart">Shopping cart</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout1">Checkout - step 1</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout2">Checkout - step 2</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout3">Checkout - step 3</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="checkout4">Checkout - step 4</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-sm-3">-->
-<!--                                        <h5>Pages and blog</h5>-->
-<!--                                        <ul>-->
-<!--                                            <li><a href="blog.html">Blog listing</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="post.html">Blog Post</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="faq.html">FAQ</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="text.html">Text page</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="text-right.html">Text page - right sidebar</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="not_found">404 page</a>-->
-<!--                                            </li>-->
-<!--                                            <li><a href="contact">Contact</a>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <!-- /.yamm-content -->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+                <?php endforeach;?>
             </ul>
-
         </div>
         <!--/.nav-collapse -->
 
@@ -300,5 +95,5 @@ _________________________________________________________ -->
     <!-- /.container -->
 </div>
 <!-- /#navbar -->
-
+<!---->
 <!-- *** NAVBAR END *** -->
