@@ -2,17 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Product extends CI_Controller
+class Product extends Frontend_Controller
 {
     public function detail($id)
     {
         $this->load->model('productFrontend');
         $data = $this->productFrontend->getProductById($id);
-
-        $this->load->model('category');
-        $categories = $this->category->getAllCategories();
-
-        $navbarData = ['categories'=>$categories];
+        $navbarData = $this->pageData['navbarData'];
 
         $this->load->view('default/head');
         $this->load->view('default/topbar');

@@ -30,83 +30,32 @@ _________________________________________________________ -->
             <ul class="nav navbar-nav navbar-left">
                 <li class="active"><a href="/">Home</a>
                 </li>
-                <li class="dropdown yamm-fw">
-                    <?php foreach ($categories as $value): ?>
-                    <?php if ($value->parent_category_id == NULL && $value->id == 1): ?>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
-                    <?php endif;?>
-                    <?php endforeach;?>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="yamm-content">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <?php foreach ($categories as $value): ?>
-                                        <?php if ($value->parent_category_id == 1 && $value->id == 3): ?>
-                                        <h5><?php echo $value->name; ?></h5>
-                                        <ul>
-                                            <?php foreach ($categories as $value): ?>
-                                            <?php if ($value->parent_category_id == 3): ?>
-                                            <li><a href="category"><?php echo $value->name; ?></a>
-                                            </li>
-                                            <?php endif;?>
+                <?php foreach ($categories as $category1): ?>
+                    <li class="dropdown yamm-fw">
+                        <a href="category/<?php echo $category1->id ?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $category1->name; ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="yamm-content">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <?php foreach ($category1->children as $category2): ?>
+                                            <h5><?php echo $category2->name; ?></h5>
+                                            <ul>
+                                                <?php foreach ($category2->children as $category3): ?>
+                                                <li><a href="category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
+                                                </li>
+                                                <?php endforeach;?>
+                                                </ul>
                                             <?php endforeach;?>
-                                        </ul>
-                                        <?php endif;?>
-                                        <?php endforeach;?>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="banner">
-                                            <a href="#">
-                                                <img src="img/banner.jpg" class="img img-responsive" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="banner">
-                                            <a href="#">
-                                                <img src="img/banner2.jpg" class="img img-responsive" alt="">
-                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- /.yamm-content -->
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown yamm-fw">
-                    <?php foreach ($categories as $value): ?>
-                    <?php if ($value->parent_category_id == NULL && $value->id == 2): ?>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200"><?php echo $value->name; ?><b class="caret"></b></a>
-                    <?php endif;?>
-                    <?php endforeach;?>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="yamm-content">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <?php foreach ($categories as $value): ?>
-                                        <?php if ($value->parent_category_id == 2 && $value->id == 4): ?>
-                                        <h5><?php echo $value->name; ?></h5>
-                                        <ul>
-                                            <?php foreach ($categories as $value): ?>
-                                            <?php if ($value->parent_category_id == 4): ?>
-                                            <li><a href="category"><?php echo $value->name; ?></a>
-                                            </li>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </ul>
-                                        <?php endif;?>
-                                        <?php endforeach;?>
-                                    </div>
-                                </div>
-                        </div>
-                        <!-- /.yamm-content -->
-                        </li>
-                    </ul>
-                </li>
+                                <!-- /.yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+                <?php endforeach;?>
             </ul>
-
         </div>
         <!--/.nav-collapse -->
 
