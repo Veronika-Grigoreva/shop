@@ -39,8 +39,8 @@ _________________________________________________________ -->
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <?php foreach ($category1->children as $category2): ?>
-                                            <h5><?php echo $category2->name; ?></h5>
-                                            <ul>
+                                                <h5><a href="/category/<?php echo $category2->id ?>"><?php echo $category2->name; ?></a> </h5>
+                                                <ul>
                                                 <?php foreach ($category2->children as $category3): ?>
                                                 <li><a href="/category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
                                                 </li>

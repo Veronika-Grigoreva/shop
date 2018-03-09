@@ -22,48 +22,38 @@ _________________________________________________________ -->
 
                     <div class="panel-body">
                         <ul class="nav nav-pills nav-stacked category-menu">
-                            <li>
-                                <a href="category">Men <span class="badge pull-right">42</span></a>
-                                <ul>
-                                    <li><a href="category">T-shirts</a>
-                                    </li>
-                                    <li><a href="category">Shirts</a>
-                                    </li>
-                                    <li><a href="category">Pants</a>
-                                    </li>
-                                    <li><a href="category">Accessories</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="active">
-                                <a href="category">Ladies  <span class="badge pull-right">123</span></a>
-                                <ul>
-                                    <li><a href="category">T-shirts</a>
-                                    </li>
-                                    <li><a href="category">Skirts</a>
-                                    </li>
-                                    <li><a href="category">Pants</a>
-                                    </li>
-                                    <li><a href="category">Accessories</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="category">Kids  <span class="badge pull-right">11</span></a>
-                                <ul>
-                                    <li><a href="category">T-shirts</a>
-                                    </li>
-                                    <li><a href="category">Skirts</a>
-                                    </li>
-                                    <li><a href="category">Pants</a>
-                                    </li>
-                                    <li><a href="category">Accessories</a>
-                                    </li>
-                                </ul>
-                            </li>
-
+                            <?php foreach ($categories as $category1): ?>
+                                <?php if ($currentCategoryId == $category1->id): ?>
+                                    <li class="active">
+                                <?php else: ?>
+                                    <li>
+                                <?php endif; ?>
+                                    <a href="/category/<?php echo $category1->id ?>"><?php echo $category1->name; ?></a>
+                                    <ul>
+                                        <?php foreach ($category1->children as $category2): ?>
+                                            <?php if ($currentCategoryId == $category2->id): ?>
+                                                <li class="active">
+                                            <?php else: ?>
+                                                <li>
+                                            <?php endif; ?>
+                                                <a href="/category/<?php echo $category2->id ?>"><?php echo $category2->name; ?></a>
+                                                <ul>
+                                                    <?php foreach ($category2->children as $category3): ?>
+                                                        <?php if ($currentCategoryId == $category3->id): ?>
+                                                            <li class="active">
+                                                        <?php else: ?>
+                                                            <li>
+                                                        <?php endif; ?>
+                                                            <a href="/category/<?php echo $category3->id ?>"><?php echo $category3->name; ?></a>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
-
                     </div>
                 </div>
 
