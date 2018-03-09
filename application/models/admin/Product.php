@@ -66,7 +66,11 @@ class Product extends CMS_Model
         $this->load->model('category');
         $allCategories = $this->category->getAllCategories();
         if ($product) {
-            $productCategoriesData = unserialize($product->categories_ids);
+            if ($product->categories_ids) {
+                $productCategoriesData = unserialize($product->categories_ids);
+            } else {
+                $productCategoriesData = array();
+            }
             $productCategories = $this->setCheckedCategory($allCategories, $productCategoriesData);
         } else {
             $productCategories = $allCategories;
