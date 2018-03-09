@@ -9,3 +9,15 @@ img.product-grid-image {
     max-width: 100%;
     max-height: 100%;
 }
+
+ul li {
+    list-style-type: none;
+}
+
+.form-group>ul {
+    padding-left: 0;
+}
+
+.form-group .categories-list {
+    font-size: 18px;
+}

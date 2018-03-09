@@ -34,8 +34,11 @@ class Products extends Admin_Controller
             $this->pageData['pageInformation']['pageTitle'] = 'New product';
         }
 
+        $productCategories = $this->productModel->prepareProductCategories($this->pageData['itemData']);
         $this->pageData['jsSettings']['activeMenuItem'] = 'products';
-        $this->pageData['gridCollection'] = $this->productModel->getCollection();
+        $this->pageData['additionalInfo']['categories'] = $productCategories;
+        $this->pageData['additionalInfo']['brands'] = '';
+        $this->pageData['additionalInfo']['colours'] = '';
 
         $this->load->view('admin/default/head', $this->pageData);
         $this->load->view('admin/default/sidebar', $this->pageData);
@@ -51,8 +54,6 @@ class Products extends Admin_Controller
         $config['upload_path']          = 'img/cms/products/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['max_size']             = 2000;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
 
         $this->load->library('upload', $config);
 
