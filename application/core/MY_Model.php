@@ -14,7 +14,7 @@ class CMS_Model extends MY_Model
 {
     private $table = '';
 
-    private static $object;
+    protected static $object;
 
     function __construct($table)
     {
@@ -61,6 +61,13 @@ class CMS_Model extends MY_Model
         }
     }
 
+    public function delete()
+    {
+        $this->db->where('id', self::$object->id);
+
+        return $this->db->delete($this->table);
+    }
+
     public function getData($field = null)
     {
         exit('get data method');
@@ -72,8 +79,15 @@ class CMS_Model extends MY_Model
             if (empty(self::$object)) {
                 self::$object = new stdClass();
             }
-            foreach ($data as $key => $value) {
-                self::$object->$key = $value;
+
+            foreach (self::$object as $key => $value) {
+                if ($key != 'id') {
+                    if (isset($data[$key])) {
+                        self::$object->$key = $data[$key];
+                    } else {
+                        self::$object->$key = NULL;
+                    }
+                }
             }
         } else {
             self::$object->$field = $data;

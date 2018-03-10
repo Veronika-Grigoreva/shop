@@ -19,21 +19,12 @@ function initializeObservers() {
         event.preventDefault();
         saveProduct(this.href);
     });
-
-    $('body').on('click', '#delete-product', function() {
-        event.preventDefault();
-        deleteProduct(this.href);
-    });
 }
 
 function saveProduct(href) {
     var form = $('#edit-product');
     form.attr('action', href);
     form.submit();
-}
-
-function deleteProduct(href) {
-
 }
 
 function validateProductForm() {
