@@ -115,8 +115,8 @@ class Product extends CMS_Model
 
             return $this->saveProductCategories(self::$object->id, $categories);
         } else {
-            $categories = $data['category'];
-            unset($data['category']);
+            $categories = $data['categories'];
+            unset($data['categories']);
 
             $this->db->insert($this->table, $data);
             $insertId = $this->db->insert_id();
