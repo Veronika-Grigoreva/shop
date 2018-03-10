@@ -77,5 +77,23 @@ class Products extends Admin_Controller
 
         exit;
     }
+
+    public function delete($id = null)
+    {
+        if ($id && $this->productModel->load($id)) {
+            if ($this->productModel->delete()) {
+                $this->session->set_flashdata('success', ['message' => 'Product has been deleted']);
+                redirect('admin/products', 'refresh');
+            } else {
+                $this->session->set_flashdata('error', ['message' => 'Something went wrong. Cannot delete product']);
+                redirect('admin/products', 'refresh');
+            }
+        } else {
+            $this->session->set_flashdata('error', ['message' => 'Cannot delete unknown product']);
+            redirect('admin/products', 'refresh');
+        }
+
+        exit;
+    }
 }
 

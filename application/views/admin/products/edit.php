@@ -7,9 +7,7 @@
                         <div class="col-lg-8"><h4 class="title">Edit product</h4></div>
                         <div class="col-lg-2 right">
                             <?php if(isset($itemData->id) && $itemData->id):?>
-                                <a id="delete-product" href="/admin/product/delete"><button class="btn btn-default btn-block">Remove</button></a>
-                            <?php else: ?>
-                                <a id="delete-product" href="/admin/product/delete"><button class="btn btn-default btn-block">Remove</button></a>
+                                <a id="delete-product" href="/admin/product/<?php echo $itemData->id;?>/delete"><button class="btn btn-default btn-block">Remove</button></a>
                             <?php endif; ?>
                         </div>
                         <div class="col-lg-2 right">
@@ -158,9 +156,9 @@
                                         <?php foreach($additionalInfo['categories'] as $category1): ?>
                                             <li>
                                                 <?php if ($category1->checked): ?>
-                                                    <input type="checkbox" name="category[]" value="<?php echo $category1->id; ?>" checked="<?php echo $category1->checked; ?>">
+                                                    <input type="checkbox" name="categories[]" value="<?php echo $category1->id; ?>" checked="<?php echo $category1->checked; ?>">
                                                 <?php else:?>
-                                                    <input type="checkbox" name="category[]" value="<?php echo $category1->id; ?>">
+                                                    <input type="checkbox" name="categories[]" value="<?php echo $category1->id; ?>">
                                                 <?php endif;?>
 
                                                 <?php echo $category1->name; ?>
@@ -170,9 +168,9 @@
                                                 <?php foreach($category1->children as $category2): ?>
                                                     <li>
                                                         <?php if ($category2->checked): ?>
-                                                            <input type="checkbox" name="category[]" value="<?php echo $category2->id; ?>" checked="<?php echo $category2->checked; ?>">
+                                                            <input type="checkbox" name="categories[]" value="<?php echo $category2->id; ?>" checked="<?php echo $category2->checked; ?>">
                                                         <?php else:?>
-                                                            <input type="checkbox" name="category[]" value="<?php echo $category2->id; ?>">
+                                                            <input type="checkbox" name="categories[]" value="<?php echo $category2->id; ?>">
                                                         <?php endif;?>
 
                                                         <?php echo $category2->name; ?>
@@ -182,9 +180,9 @@
                                                         <?php foreach($category2->children as $category3): ?>
                                                             <li>
                                                                 <?php if ($category3->checked): ?>
-                                                                    <input type="checkbox" name="category[]" value="<?php echo $category3->id; ?>" checked="<?php echo $category3->checked; ?>">
+                                                                    <input type="checkbox" name="categories[]" value="<?php echo $category3->id; ?>" checked="<?php echo $category3->checked; ?>">
                                                                 <?php else:?>
-                                                                    <input type="checkbox" name="category[]" value="<?php echo $category3->id; ?>">
+                                                                    <input type="checkbox" name="categories[]" value="<?php echo $category3->id; ?>">
                                                                 <?php endif;?>
 
                                                                 <?php echo $category3->name; ?>
