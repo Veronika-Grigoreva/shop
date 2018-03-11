@@ -64,10 +64,16 @@ class Products extends Admin_Controller
 
     public function save($id = null)
     {
+        $productData = $this->input->post();
+
+        if (!isset($productData['categories'])) {
+            $productData['categories'] = array();
+        }
+
         if ($id && $this->productModel->load($id)) {
-            $this->productModel->setData($this->input->post());
+            $this->productModel->setData($productData);
         } else {
-            $this->productModel->setData($this->input->post());
+            $this->productModel->setData($productData);
         }
 
         if ($this->productModel->save()) {
