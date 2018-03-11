@@ -80,14 +80,8 @@ class CMS_Model extends MY_Model
                 self::$object = new stdClass();
             }
 
-            foreach (self::$object as $key => $value) {
-                if ($key != 'id') {
-                    if (isset($data[$key])) {
-                        self::$object->$key = $data[$key];
-                    } else {
-                        self::$object->$key = NULL;
-                    }
-                }
+            foreach ($data as $key => $value) {
+                self::$object->$key = $value;
             }
         } else {
             self::$object->$field = $data;
