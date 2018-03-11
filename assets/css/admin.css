@@ -21,3 +21,26 @@ ul li {
 .form-group .categories-list {
     font-size: 18px;
 }
+
+#categories-grid-block {
+
+}
+
+#categories-grid-block > ul {
+    padding-left: 20px;
+}
+
+#categories-grid-block ul {
+    font-size: 16px;
+}
+
+#categories-grid-block ul > li{
+
+}
+#categories-grid-block ul > li > span.category-id{
+    font-size: 14px;
+    margin-right: 10px;
+}
+#categories-grid-block ul > li > a{
+    margin-left: 10px;
+}
