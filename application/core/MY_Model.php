@@ -70,9 +70,17 @@ class CMS_Model extends MY_Model
         return $this->db->delete($this->table);
     }
 
-    public function getData()
+    public function getData($field = null)
     {
-        return $this->object;
+        if (!$field) {
+            return $this->object;
+        } else {
+            if (isset($this->object->$field)) {
+                return $this->object->$field;
+            } else {
+                return false;
+            }
+        }
     }
 
     public function setData($data, $field = null)
@@ -86,6 +94,10 @@ class CMS_Model extends MY_Model
                 $this->object->$key = $value;
             }
         } else {
+            if (empty($this->object)) {
+                $this->object = new stdClass();
+            }
+
             $this->object->$field = $data;
         }
     }

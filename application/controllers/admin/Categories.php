@@ -17,8 +17,6 @@ class Categories extends Admin_Controller
         $this->pageData['gridCollectionHtml'] = $this->categoryModel->getCollection()
             ->prepareCategoriesCollection()
             ->getCategoriesGridHtml();
-        ;
-
 
         $this->load->view('admin/default/head', $this->pageData);
         $this->load->view('admin/default/sidebar', $this->pageData);
@@ -33,24 +31,57 @@ class Categories extends Admin_Controller
     {
         if ($id) {
             $this->pageData['pageInformation']['pageTitle'] = 'Edit product';
-            $this->pageData['itemData'] = $this->productModel->load($id);
+            $this->pageData['itemData'] = $this->categoryModel->load($id)->getData();
         } else {
             $this->pageData['pageInformation']['pageTitle'] = 'New product';
+            $this->pageData['itemData'] = $this->categoryModel->getData();
         }
 
-        $productCategories = $this->productModel->prepareProductCategories($this->pageData['itemData']);
-        $this->pageData['jsSettings']['activeMenuItem'] = 'products';
-        $this->pageData['additionalInfo']['categories'] = $productCategories;
-        $this->pageData['additionalInfo']['brands'] = '';
-        $this->pageData['additionalInfo']['colours'] = '';
+        $this->pageData['jsSettings']['activeMenuItem'] = 'categories';
 
         $this->load->view('admin/default/head', $this->pageData);
         $this->load->view('admin/default/sidebar', $this->pageData);
         $this->load->view('admin/default/navbar', $this->pageData);
         $this->load->view('admin/default/page_system_information', $this->pageData);
-        $this->load->view('admin/products/edit', $this->pageData);
+        $this->load->view('admin/categories/edit', $this->pageData);
         $this->load->view('admin/default/footer', $this->pageData);
         $this->load->view('admin/default/scripts', $this->pageData);
+    }
+
+    public function save($id = null)
+    {
+        $categoryData = $this->input->post();
+
+        if ($id && $this->categoryModel->load($id)) {
+            $this->categoryModel->setData($categoryData);
+        } else {
+            $this->categoryModel->setData($categoryData);
+        }
+
+        if ($this->categoryModel->save()) {
+            $this->session->set_flashdata('success', ['message' => 'Category has been saved']);
+            redirect('admin/categories', 'refresh');
+        }
+
+        exit;
+    }
+
+    public function delete($id = null)
+    {
+        if ($id && $this->categoryModel->load($id)) {
+            if ($this->categoryModel->delete()) {
+                $this->session->set_flashdata('success', ['message' => 'Category has been deleted']);
+                redirect('admin/categories', 'refresh');
+            } else {
+                $this->session->set_flashdata('error', ['message' => 'Something went wrong. Cannot delete category']);
+                redirect('admin/categories', 'refresh');
+            }
+        } else {
+            $this->session->set_flashdata('error', ['message' => 'Cannot delete unknown category']);
+            redirect('admin/categories', 'refresh');
+        }
+
+        exit;
     }
 }
 

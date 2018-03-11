@@ -11,13 +11,31 @@ class Category extends CMS_Model
     }
 
     // use after prepareCategoryByChildren!!!
-    private function renderCategoriesHtml($collection = false)
+    private function renderCategoriesHtml($type, $collection = false)
     {
         if (!$collection) {
             $collection = $this->object;
+        } else {
+            $collection = $collection->object;
         }
 
-        $html = $this->load->view('admin/categories/category-grid-item', ['collection' => $collection], TRUE);
+        switch ($type) {
+            case 'list':
+                $html = $this->load->view('admin/categories/category-grid-item', ['collection' => $collection], TRUE);
+                break;
+            case 'radio':
+                $html = $this->load->view('admin/categories/category-grid-item-radio',
+                    [
+                        'collection' => $collection,
+                        'parrentCategoryId' => $this->getData('parent_category_id') ? $this->getData('parent_category_id') : 0,
+                        'currentCategoryId' => $this->getData('id') ? $this->getData('id') : 0
+                    ],
+                    TRUE
+                );
+                break;
+
+                //TODO checkbox
+        }
 
         return $html;
     }
@@ -47,6 +65,23 @@ class Category extends CMS_Model
         return $preparedCollection;
     }
 
+    public function getData($field = null)
+    {
+        if (!$field) {
+            $this->load->model('admin/category', 'categoryCollection');
+
+            $collection = $this->categoryCollection->getCollection()
+                ->prepareCategoriesCollection();
+
+            $this->setData($this->getCategoriesGridHtml('radio', $collection), 'parentCategoryHtml');
+//            $this->object->parentCategoryHtml = $this->getCategoriesGridHtml('radio', $collection);
+
+            return $this->object;
+        } else {
+            return parent::getData($field);
+        }
+    }
+
     public function prepareCategoriesCollection()
     {
         $this->object = $this->prepareCategoryByChildren();
@@ -54,8 +89,8 @@ class Category extends CMS_Model
         return $this;
     }
 
-    public function getCategoriesGridHtml()
+    public function getCategoriesGridHtml($type = 'list', $collection = false)
     {
-        return $this->renderCategoriesHtml();
+        return $this->renderCategoriesHtml($type, $collection);
     }
 }
