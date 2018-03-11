@@ -94,3 +94,12 @@ $route['admin/product/(:num)/save'] = 'admin/products/save/$1';
 $route['admin/product/new/save'] = 'admin/products/save/';
 $route['admin/product/(:num)/delete'] = 'admin/products/delete/$1';
 $route['admin/uploadfile'] = 'admin/products/uploadImage/';
+
+
+//categories
+$route['admin/categories'] = 'admin/categories/grid';
+$route['admin/category/(:num)'] = 'admin/categories/item/$1';
+$route['admin/category/new'] = 'admin/categories/item/';
+$route['admin/category/(:num)/save'] = 'admin/categories/save/$1';
+$route['admin/category/new/save'] = 'admin/categories/save/';
+$route['admin/category/(:num)/delete'] = 'admin/categories/delete/$1';

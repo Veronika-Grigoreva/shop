@@ -12,7 +12,7 @@ class Product extends CMS_Model
         parent::__construct($this->table);
     }
 
-    private function setCheckedCategory($categories, $productCategoriesData = array()) {
+    protected function setCheckedCategory($categories, $productCategoriesData = array()) {
         foreach ($categories as $id => $category) {
             if (in_array($category->id, $productCategoriesData)) {
                 $categories[$id]->checked = 1;
@@ -74,7 +74,9 @@ class Product extends CMS_Model
         $object->categories = $categories;
         unset($object->id_category);
 
-        return self::$object = $object;
+        $this->object = $object;
+
+        return $this;
     }
 
     private function saveProductCategories($productId, $categories)
@@ -102,7 +104,7 @@ class Product extends CMS_Model
     {
         $data = [];
 
-        foreach (self::$object as $key => $value) {
+        foreach ($this->object as $key => $value) {
             $data[$key] = $value;
         }
 
@@ -110,10 +112,10 @@ class Product extends CMS_Model
             $categories = $data['categories'];
             unset($data['categories']);
 
-            $this->db->where('id', self::$object->id);
+            $this->db->where('id', $this->object->id);
             $this->db->update($this->table, $data);
 
-            return $this->saveProductCategories(self::$object->id, $categories);
+            return $this->saveProductCategories($this->object->id, $categories);
         } else {
             $categories = $data['categories'];
             unset($data['categories']);

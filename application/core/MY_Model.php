@@ -14,7 +14,7 @@ class CMS_Model extends MY_Model
 {
     private $table = '';
 
-    protected static $object;
+    protected $object;
 
     function __construct($table)
     {
@@ -31,8 +31,9 @@ class CMS_Model extends MY_Model
     public function getCollection()
     {
         $query = $this->db->get($this->table);
+        $this->object = $this->prepareData($query->result());
 
-        return $this->prepareData($query->result());
+        return $this;
     }
 
     public function load($id)
@@ -40,20 +41,21 @@ class CMS_Model extends MY_Model
         $query = $this->db->get_where($this->table, array('id' => $id));
 
         $result = $query->result();
+        $this->object = $result[0];
 
-        return self::$object = $result[0];
+        return $this;
     }
 
     public function save()
     {
         $data = [];
 
-        foreach (self::$object as $key => $value) {
+        foreach ($this->object as $key => $value) {
             $data[$key] = $value;
         }
 
         if (isset($data['id'])) {
-            $this->db->where('id', self::$object->id);
+            $this->db->where('id', $this->object->id);
 
             return $this->db->update($this->table, $data);
         } else {
@@ -63,28 +65,28 @@ class CMS_Model extends MY_Model
 
     public function delete()
     {
-        $this->db->where('id', self::$object->id);
+        $this->db->where('id', $this->object->id);
 
         return $this->db->delete($this->table);
     }
 
-    public function getData($field = null)
+    public function getData()
     {
-        exit('get data method');
+        return $this->object;
     }
 
     public function setData($data, $field = null)
     {
         if (!$field) {
-            if (empty(self::$object)) {
-                self::$object = new stdClass();
+            if (empty($this->object)) {
+                $this->object = new stdClass();
             }
 
             foreach ($data as $key => $value) {
-                self::$object->$key = $value;
+                $this->object->$key = $value;
             }
         } else {
-            self::$object->$field = $data;
+            $this->object->$field = $data;
         }
     }
 }

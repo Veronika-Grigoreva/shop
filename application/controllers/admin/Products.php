@@ -14,7 +14,7 @@ class Products extends Admin_Controller
     {
         $this->pageData['pageInformation']['pageTitle'] = 'Products';
         $this->pageData['jsSettings']['activeMenuItem'] = 'products';
-        $this->pageData['gridCollection'] = $this->productModel->getCollection();
+        $this->pageData['gridCollection'] = $this->productModel->getCollection()->getData();
 
         $this->load->view('admin/default/head', $this->pageData);
         $this->load->view('admin/default/sidebar', $this->pageData);
@@ -29,7 +29,7 @@ class Products extends Admin_Controller
     {
         if ($id) {
             $this->pageData['pageInformation']['pageTitle'] = 'Edit product';
-            $this->pageData['itemData'] = $this->productModel->load($id);
+            $this->pageData['itemData'] = $this->productModel->load($id)->getData();
         } else {
             $this->pageData['pageInformation']['pageTitle'] = 'New product';
         }
