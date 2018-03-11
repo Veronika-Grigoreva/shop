@@ -12,14 +12,14 @@
                         </div>
                         <div class="col-lg-2 right">
                             <?php if(isset($itemData->id) && $itemData->id):?>
-                                <a id="save-product" href="/admin/product/<?php echo $itemData->id;?>/save"><button class="btn btn-default btn-block">Save</button></a>
+                                <a id="save-admin-form" href="/admin/product/<?php echo $itemData->id;?>/save"><button class="btn btn-default btn-block">Save</button></a>
                             <?php else: ?>
-                                <a id="save-product" href="/admin/product/new/save"><button class="btn btn-default btn-block">Save</button></a>
+                                <a id="save-admin-form" href="/admin/product/new/save"><button class="btn btn-default btn-block">Save</button></a>
                             <?php endif; ?>
                         </div>
                     </div>
                 </div>
-                <form id="edit-product" action="" method="post">
+                <form id="admin-edit" action="" method="post">
                     <div class="content">
                         <div class="row">
                             <div class="col-md-3">

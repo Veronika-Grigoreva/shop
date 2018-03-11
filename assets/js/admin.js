@@ -15,14 +15,14 @@ function addActiveClassToMenuItem() {
 }
 
 function initializeObservers() {
-    $('body').on('click', '#save-product', function() {
+    $('body').on('click', '#save-admin-form', function() {
         event.preventDefault();
-        saveProduct(this.href);
+        saveAdminForm(this.href);
     });
 }
 
-function saveProduct(href) {
-    var form = $('#edit-product');
+function saveAdminForm(href) {
+    var form = $('#admin-edit');
     form.attr('action', href);
     form.submit();
 }
